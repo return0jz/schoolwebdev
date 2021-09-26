@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Fira+Sans&display=swap');
+
+header {
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+header .title h1 {
+  font-family: 'Baloo 2';
+  font-size: 40px;
+}
+
+header .search {
+  margin-left: 40px;
+}
+
+header .search input { 
+  background-color: rgb(238, 238, 238);
+  padding: 5px;
+  border: none;
+}
+
+header nav {
+  margin-left: auto; 
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+header nav a {
+  margin-left: 20px;
+
+  color: black;
+  text-decoration: none;
+  font-family: 'Fira Sans', Arial, sans-serif;
+  font-size: 15px;
+}
+
+header nav a:hover {
+  color: grey;
+}
+
+header nav .curr {
+  font-weight: bold;
+}
+
