@@ -8,12 +8,11 @@ header {
   padding-bottom: 10px;
   display: flex;
   align-items: center;
-  white-space: nowrap;
 }
 
 header .title h1 {
   font-family: 'Baloo 2';
-  font-size: 40px;
+  font-size: 30px;
 }
 
 header .search {
@@ -29,12 +28,12 @@ header .search input {
 header nav {
   margin-left: auto; 
   display: flex;
-  flex-wrap: nowrap;
+  align-self: center;
+  justify-items: center;
 }
 
 header nav a {
   margin-left: 20px;
-
   color: black;
   text-decoration: none;
   font-family: 'Fira Sans', Arial, sans-serif;

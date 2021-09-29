@@ -14,10 +14,11 @@ class Titlebar extends React.Component {
         </div>
 
         <nav>
-          <a href="/">Browse</a>
-          <a href="/profile">Profile</a>
-          <a href="/mygames">My Games</a>
-          <a href="/mypositions">My Positions</a>
+          <a href="/">BROWSE</a>
+          <a href="/profile">PROFILE</a>
+          <a href="/mygames">MY GAMES</a>
+          <a href="/mypositions">MY POSITIONS</a>
+          <a href="/signin">SIGN IN</a>
         </nav>
       </header>
     )
