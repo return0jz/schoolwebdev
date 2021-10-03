@@ -6,7 +6,7 @@ class SignUp extends react.Component {
   constructor() {
     super();
     this.state = {
-      no_error: true
+      error: "none"
     };
   }
   onSubmit(e) {
@@ -22,48 +22,56 @@ class SignUp extends react.Component {
       fetch("/api/signup", {
         method: 'post',
         headers: {
-          'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           username: this.state.username,
           password: this.state.password,
         })
-      }).then(res => res.json)
-        .then(res => console.log(res));
-      this.setState({no_error: true});
+      }).then(response => {
+        this.setState({error: "none"});
+      }).catch(error => {
+        this.setState({error: "exists"});
+      });
     } else {
-      this.setState({no_error: false});
+      this.setState({error: "validation"});
     }
   }
   render() {
-    if (this.state.no_error) {
+    return (
+      <div className="signUp">
+        <h1> Sign up: </h1>
+        <input onChange={e => this.setState({username: e.target.value})} autoComplete="off" id="username" type="text" placeholder="Username" />
+        <input onChange={e => this.setState({password: e.target.value})} autoComplete="off" id="password" type="password" placeholder="Password" />
+        <button onClick={e => this.onSubmit(e)}> Register  </button>
+        <SignUpError type={this.state.error} />
+      </div>
+    )
+  }
+}
+
+class SignUpError extends react.Component{
+  render() {
+    if (this.props.type === "validation") {
       return (
-        <div className="signUp">
-          <h1> Sign up: </h1>
-          <input onChange={e => this.setState({username: e.target.value})} autoComplete="off" id="username" type="text" placeholder="Username" />
-          <input onChange={e => this.setState({password: e.target.value})} autoComplete="off" id="password" type="password" placeholder="Password" />
-          <button onClick={e => this.onSubmit(e)}> Register  </button>
-        </div>
-      );
-    }
-    else { // gg code reuse 100
-      return (
-        <div className="signUp">
-          <h1> Sign up: </h1>
-          <input onChange={e => this.setState({username: e.target.value})} autoComplete="off" id="username" type="text" placeholder="Username" />
-          <input onChange={e => this.setState({password: e.target.value})} autoComplete="off" id="password" type="password" placeholder="Password" />
-          <button onClick={e => this.onSubmit(e)}> Register  </button>
-          <div className="error">
-            <p> Sorry, your username and password must follow these guidelines: </p>
-            <ul>
-              <li> Your password is minimum 4 characters and max 30 characters</li>
-              <li> Your username is minimum 3 characters and max 20 characters </li>
-              <li> Only letters, numbers, and underscores are accepted (no spaces) </li>
-            </ul>
-          </div>
+        <div className="error">
+          <p> Sorry, your username and password must follow these guidelines: </p>
+          <ul>
+            <li> Your password is minimum 4 characters and max 30 characters</li>
+            <li> Your username is minimum 3 characters and max 20 characters </li>
+            <li> Only letters, numbers, and underscores are accepted (no spaces) </li>
+          </ul>
         </div>
       )
+    }
+    else if (this.props.type === "exists") {
+      return (
+        <div className="error">
+          <p> Sorry, that username already exists </p>
+        </div>
+      )
+    } else {
+      return (<div className="error"> </div>);
     }
   }
 }

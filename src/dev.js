@@ -15,7 +15,7 @@ module.exports = function() {
         saveUninitialized: false
     }));
     app.use(express.json());
-    app.use(routes);
+    app.use(routes(db));
     app.listen(port, () => {
         console.log(`Listening on port ${port}`)
     })
