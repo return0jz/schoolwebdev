@@ -1,4 +1,3 @@
-import React from 'react';
 import react from 'react';
 import './signup.css';
 
@@ -28,13 +27,13 @@ class SignUp extends react.Component {
           username: this.state.username,
           password: this.state.password,
         })
-      }).then(response => {
-        this.setState({error: "none"});
-      }).catch(error => {
-        this.setState({error: "exists"});
+      })
+      .then(response => response.json())
+      .then(data => {this.setState({error: data.type})}).catch(error => {
+        console.log("Failure to get response")
       });
     } else {
-      this.setState({error: "validation"});
+      this.setState({error: "clientval"});
     }
   }
   render() {
@@ -52,7 +51,7 @@ class SignUp extends react.Component {
 
 class SignUpError extends react.Component{
   render() {
-    if (this.props.type === "validation") {
+    if (this.props.type === "clientval") {
       return (
         <div className="error">
           <p> Sorry, your username and password must follow these guidelines: </p>
@@ -70,8 +69,18 @@ class SignUpError extends react.Component{
           <p> Sorry, that username already exists </p>
         </div>
       )
-    } else {
-      return (<div className="error"> </div>);
+    } else if (this.props.type === "serverval") {
+      return (
+        <div className="error">
+          <p> Server-side validation failed </p>
+        </div>
+      )
+    } else if (this.props.type === "success") {
+        setTimeout(() => window.location.href = "/signin", 1000);
+        return (<p className="success"> Success! Redirecting to sign in...</p>);
+    }
+    else {
+      return (<react.Fragment> </react.Fragment>);
     }
   }
 }
