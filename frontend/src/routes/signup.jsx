@@ -14,11 +14,23 @@ class SignUp extends react.Component {
         && (this.state.username?.length <= 20) 
         && (this.state.password?.length >= 4)
         && (this.state.password?.length<= 30)
-        && (/\s/.test(this.state.username.trim()) == false)
-        && (/\s/.test(this.state.password.trim()) == false)
+        && (/\s/.test(this.state.username.trim()) === false)
+        && (/\s/.test(this.state.password.trim()) === false)
         && (/^[a-zA-Z0-9_]*$/.test(this.state.username.trim()))
         && (/^[a-zA-Z0-9_]*$/.test(this.state.password.trim()))
       ) {
+      fetch("/api/signup", {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password,
+        })
+      }).then(res => res.json)
+        .then(res => console.log(res));
       this.setState({no_error: true});
     } else {
       this.setState({no_error: false});
