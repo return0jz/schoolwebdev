@@ -15,6 +15,7 @@ class Database {
                 id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                 username varchar(20) NOT NULL,
                 password varchar(30) NOT NULL,
+                email varchar(320) NOT NULL,
                 birth DATE NOT NULL
             )
         `);

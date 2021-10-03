@@ -1,6 +1,5 @@
 const express = require('express');
-const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
+const session = require('express-session');
 const routes = require('./api_routes/api_routes');
 const Database = require('./database');
 
@@ -10,7 +9,13 @@ module.exports = function() {
     let db = new Database();
 
     let app = express();
-    routes(app);
+    app.use(session({
+        secret: process.env.secret || "secret", // I guess its salt for cookie hash
+        resave: false,
+        saveUninitialized: false
+    }));
+    app.use(express.json());
+    app.use(routes);
     app.listen(port, () => {
         console.log(`Listening on port ${port}`)
     })

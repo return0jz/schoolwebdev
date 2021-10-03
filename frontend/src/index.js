@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Titlebar from './titlebar.jsx';
 import './index.css';
-import Home from './routes/home.jsx';
-import Profile from './routes/profile.jsx'
 import NotFoundPage from './routes/notfound.jsx';
+import SignIn from './routes/signin.jsx';
+import SignUp from './routes/signup.jsx';
 
 class App extends React.Component {
   render() {
@@ -14,11 +14,12 @@ class App extends React.Component {
       <Router>
         <Titlebar />
         <Switch>
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/" component={Home} /> 
+          <Route exact path="/" component={SignIn} /> 
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={SignUp} />
           <Route component={NotFoundPage} />
         </Switch>
-      </Router>   
+      </Router>
     )
   }
 }

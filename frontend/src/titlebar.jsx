@@ -6,7 +6,7 @@ class Titlebar extends React.Component {
     return (
       <header>
         <div className="title">
-          <h1> chessit </h1>
+          <a href="/"> chessit </a>
         </div>
 
         <div className="search">
@@ -16,8 +16,7 @@ class Titlebar extends React.Component {
         <nav>
           <a href="/">BROWSE</a>
           <a href="/profile">PROFILE</a>
-          <a href="/mygames">MY GAMES</a>
-          <a href="/signin">SIGN IN</a>
+          <a href="/mygames">MY GAME LIST</a>
         </nav>
       </header>
     )
