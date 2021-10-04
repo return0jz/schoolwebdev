@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 
-module.exports = function(db) { // TODO: Add promises to database because code looking nasty with callback hell
+module.exports = function(db) { // TODO: Add promises to sqlite3 because code looking nasty with callback hell
   router.post("/api/signup", (req, res) => {
     req.body.username = req.body.username.trim();
     req.body.password = req.body.password.trim();
@@ -19,7 +19,7 @@ module.exports = function(db) { // TODO: Add promises to database because code l
           let existsStr = row?.username;
           if (existsStr == req.body.username) {
             res.json({
-              type: 'exists'
+              type: 'exists' // gg too lazy to use HTTP status codes
             });
           } 
           else {

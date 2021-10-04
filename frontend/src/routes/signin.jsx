@@ -6,10 +6,9 @@ class SignIn extends React.Component {
     return (
       <div className="signIn">
         <h1> Log In: </h1>
-        <input autoComplete="off" id="username" type="text" placeholder="Username" />
-        <input autoComplete="off" id="password" type="text" placeholder="Password" />
+        <input onChange={e => this.setState({username: e.target.value})} autoComplete="off" id="username" type="text" placeholder="Username" />
+        <input onChange={e => this.setState({password: e.target.value})} autoComplete="off" id="password" type="password" placeholder="Password" />
         <button> Log In </button>
-
         <p> Haven't registered yet? <a href="/signup"> Click here </a>  </p>
       </div>
     );

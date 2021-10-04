@@ -9,7 +9,7 @@
   padding-bottom: 25px;
 }
 
-.signIn input[type=text] {
+.signIn input {
   width: 50%;
   padding: 10px;
   margin-bottom: 25px;
@@ -18,8 +18,7 @@
   background-color: rgb(250, 250, 250);
 }
 
-.signIn input[type=text]:focus{
-
+.signIn input:focus{
   outline: none;
 }
 

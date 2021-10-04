@@ -49,7 +49,7 @@ class SignUp extends react.Component {
   }
 }
 
-class SignUpError extends react.Component{
+class SignUpError extends react.Component { // TODO: Might be better to use HTTP status instead of json strings, but I guess it's okay.
   render() {
     if (this.props.type === "clientval") {
       return (

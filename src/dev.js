@@ -29,7 +29,7 @@ module.exports = function() {
 
   let app = express();
   app.use(session({
-      secret: process.env.secret || "secret", // I guess its salt for cookie hash
+      secret: process.env.secret || "asdkfhjzfioqlhsjdajfhpq", // I guess its salt for cookie hash
       resave: false,
       saveUninitialized: false
   }));
@@ -37,5 +37,5 @@ module.exports = function() {
   app.use(routes(db));
   app.listen(port, () => {
       console.log(`Listening on port ${port}`)
-  })
+  });
 }

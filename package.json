@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/return0jz/schoolwebdev#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongodb": "^4.1.2",
     "nodemon": "^2.0.13",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "uuid": "^8.3.2"
   }
 }
