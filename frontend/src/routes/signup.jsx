@@ -4,6 +4,7 @@ import './signup.css';
 class SignUp extends react.Component {
   constructor() {
     super();
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       error: "none"
     };
@@ -29,7 +30,8 @@ class SignUp extends react.Component {
         })
       })
       .then(response => response.json())
-      .then(data => {this.setState({error: data.type})}).catch(error => {
+      .then(data => this.setState({error: data.type}))
+      .catch(error => {
         console.log("Failure to get response")
       });
     } else {

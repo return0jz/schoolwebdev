@@ -47,6 +47,14 @@
   margin-bottom: 10px;
 }
 
+.success {
+  text-align: center;
+  font-size: 12px;
+  color: rgb(0, 150, 57);
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
 .signUp .error ul {
   margin-left: 10px;
 }
@@ -57,11 +65,3 @@
   font-size: 10px;
 }
 
-.success {
-  text-align: center;
-  font-size: 12px;
-  color: rgb(0, 150, 57);
-  font-weight: lighter;
-  margin-bottom: 10px;
-  
-}

@@ -38,3 +38,17 @@
   background-color: rgb(173, 173, 173);
   transition-duration: 0.1s;
 }
+
+.signInError {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.signInError p {
+  color: rgb(90, 0, 0);
+  font-size: 12px;
+}
+
+.signInError .success {
+  color: rgb(0, 150, 57)
+}

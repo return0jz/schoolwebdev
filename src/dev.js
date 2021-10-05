@@ -12,6 +12,7 @@ module.exports = function() {
       username VARCHAR(20) NOT NULL,
       password VARCHAR(30) NOT NULL,
       birth DATE NOT NULL,
+      session_id VARCHAR(36),
       PRIMARY KEY (username)
     )
   `)
@@ -25,7 +26,15 @@ module.exports = function() {
       PRIMARY KEY (id),
       FOREIGN KEY (username) REFERENCES user(username)
     )
-  `);
+  `)//.run(`
+      //CREATE TABLE IF NOT EXISTS session (
+        //username VARCHAR(20) NOT NULL,
+        //session_id CHAR(20) NOT NULL,
+        //FOREIGN KEY (username) REFERENCES user(username)
+      //)
+  //`) 
+  // Using in-memory default (MemoryStore)
+  ;
 
   let app = express();
   app.use(session({
