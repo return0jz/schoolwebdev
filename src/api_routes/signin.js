@@ -8,6 +8,7 @@ module.exports = function(db) {
         console.log(row);
         console.log(req.body);
         if ( row && (row.username == req.body.username && row.password == req.body.password)) {
+          req.session.username == req.body.username;
           req.session.save();
           res.json({error: "false"});
           db.run("UPDATE user SET session_id = ? WHERE username = ?", req.session.id, req.body.username);

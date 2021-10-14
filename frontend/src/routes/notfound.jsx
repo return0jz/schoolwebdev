@@ -6,7 +6,7 @@ class NotFoundPage extends React.Component {
     return (
       <div className="notFound">
         <h2> Sorry, this page doesn't exist. </h2>
-          </div>
+      </div>
     );
   }
 }

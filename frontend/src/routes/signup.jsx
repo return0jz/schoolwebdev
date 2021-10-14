@@ -10,6 +10,7 @@ class SignUp extends react.Component {
     };
   }
   onSubmit(e) {
+    let self = this;
     if ((this.state.username?.length >= 3) // dank validation
         && (this.state.username?.length <= 20) 
         && (this.state.password?.length >= 4)
@@ -25,17 +26,17 @@ class SignUp extends react.Component {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password,
+          username: self.state.username,
+          password: self.state.password,
         })
       })
       .then(response => response.json())
-      .then(data => this.setState({error: data.type}))
+      .then(data => self.setState({error: data.type}))
       .catch(error => {
         console.log("Failure to get response")
       });
     } else {
-      this.setState({error: "clientval"});
+      self.setState({error: "clientval"});
     }
   }
   render() {
