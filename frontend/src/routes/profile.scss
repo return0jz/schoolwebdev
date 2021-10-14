@@ -1,0 +1,25 @@
+main {
+  margin-top: 50px;
+  margin-left: 175px;
+  margin-right: 160px;
+  margin-bottom: 50px;
+  display: flex;
+
+  .square {
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+
+    h2 {
+      font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+main {
+  .subtitle {
+    margin-top: 40px;
+    margin-bottom: 50px;
+
+    h2 {
+      text-align: center;
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+  .gameInfo {
+    margin: auto;
+    margin-bottom: 30px;
+    width: 75%;
+    display: flex;
+
+    img {
+      height: 125px;
+      width: 125px;
+    }
+
+    .content {
+      margin-left: 20px;
+
+      .line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        h3 {
+          font-family: 'Fira Sans', Arial, sans-serif;
+          font-size: 20px;
+        }
+        h4 {
+          font-family: 'Fira Sans', Arial, sans-serif;
+          font-size: 15px;
+          font-weight: normal;
+          color: rgb(31, 31, 31);
+          margin-left: auto
+        }
+      }
+
+      .desc {
+        font-family: 'Fira Sans', Arial, sans-serif;
+        font-size: 12px;
+        color: rgb(71, 71, 71);
+        margin-bottom: 15px;
+      }
+      p {
+        font-family: 'Fira Sans', Arial, sans-serif;
+        font-size: 12px;
+        color: rgb(163, 163, 163);
+      }
+    }
+  }
+}

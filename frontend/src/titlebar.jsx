@@ -1,5 +1,5 @@
 import React from 'react';
-import './titlebar.css'
+import './titlebar.scss'
 
 class Titlebar extends React.Component {
   render() {
