@@ -18,18 +18,22 @@ class App extends React.Component {
       isValidated: false,
     }
   }
-  render() {
+  componentDidMount() {
     let self = this;
     fetch("/api/validate", {
       method: 'post',
     }).then(res => res.json())
       .then(data => {
-        if (data) {
-          self.state.isValidated = data.validateFailed === false;
+        if (data?.validateFailed === true) {
+          this.setState({validateFailed: true});
+        } else {
+          this.setState({validateFailed: false});
         }
       });
+  }
+  render() {
 
-    if (this.state.isValidated) {
+    if (this.state.validateFailed === false) {
       console.log("User is validated!"); // Debug
       return (
         <Router>
