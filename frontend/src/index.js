@@ -25,11 +25,12 @@ class App extends React.Component {
     }).then(res => res.json())
       .then(data => {
         if (data) {
-          self.state.isValidated = data.validateFailed == false;
+          self.state.isValidated = data.validateFailed === false;
         }
       });
 
     if (this.state.isValidated) {
+      console.log("User is validated!"); // Debug
       return (
         <Router>
           <Titlebar />
@@ -45,6 +46,7 @@ class App extends React.Component {
         </Router>
       )
     } else {
+      console.log("User isn't validated!");
       return (
         <Router>
           <Titlebar />

@@ -7,6 +7,7 @@ class Profile extends react.Component {
     this.state = {};
   }
   render() {
+    
     return(
       <main>
         <div class="square"> 

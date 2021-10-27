@@ -56,7 +56,7 @@ class SignInError extends React.Component {
       setTimeout(() => window.location.href = "/profile", 1000);
       return(
         <div className='signInError'>
-          <p class="success"> Successfully logged in! Redirecting to profile...</p>
+          <p className="success"> Successfully logged in! Redirecting to profile...</p>
         </div>
       )
     }
