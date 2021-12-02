@@ -1,6 +1,7 @@
 import React from 'react';
-import react from 'react'
-import './gameforum.scss'
+import react from 'react';
+import './gameforum.scss';
+import { Chessboard } from 'react-chessboard';
 
 class GameForum extends react.Component {
   constructor() {
@@ -14,7 +15,7 @@ class GameForum extends react.Component {
         <div class="left">
         <h2> PLACEHOLDER vs PLACEHOLDER</h2>
         <h3> PLACEHOLDER: LOCATION </h3>
-        <img src="img/eg.jpg" alt="Game missing" />
+        <Chessboard id="game" /> 
         <div class="buttons"> 
             <div class="leftB">
               <button id="b1"> {'<'}- </button>

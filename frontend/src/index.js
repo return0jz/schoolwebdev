@@ -15,13 +15,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isValidated: false,
+      isValidated: undefined,
     }
   }
   componentDidMount() {
-    let self = this;
     fetch("/api/validate", {
       method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     }).then(res => res.json())
       .then(data => {
         if (data?.validateFailed === true) {
@@ -32,9 +34,8 @@ class App extends React.Component {
       });
   }
   render() {
-
+    console.log("Website rendered.");
     if (this.state.validateFailed === false) {
-      console.log("User is validated!"); // Debug
       return (
         <Router>
           <Titlebar />
@@ -49,22 +50,23 @@ class App extends React.Component {
           </Switch>
         </Router>
       )
-    } else {
-      console.log("User isn't validated!");
-      return (
-        <Router>
-          <Titlebar />
-          <Switch>
-            <Route exact path="/" component={SignIn} /> 
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/profile" component={SignIn} />
-            <Route exact path="/mygames" component={SignIn} />
-            <Route exact path="/gameforumtemplate" component={SignIn} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Router>
+    } else if (this.state.validateFailed === true) {
+        return (
+          <Router>
+            <Titlebar />
+            <Switch>
+              <Route exact path="/" component={SignIn} /> 
+              <Route exact path="/signin" component={SignIn} />
+              <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/profile" component={SignIn} />
+              <Route exact path="/mygames" component={SignIn} />
+              <Route exact path="/gameforumtemplate" component={SignIn} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Router>
       )
+    } else {
+        return <React.Fragment> </React.Fragment>
     }
   }
 }

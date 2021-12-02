@@ -6,9 +6,10 @@ class SignIn extends React.Component {
     super();
     this.state = {
       username: null,
-      password: null
+      password: null,
+      error: null
     }
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this); // Javascript is shit
   }
   onSubmit() {
     fetch('/api/signin', {
@@ -37,7 +38,6 @@ class SignIn extends React.Component {
         <input onChange={e => this.setState({password: e.target.value})} autoComplete="off" id="password" type="password" placeholder="Password" />
         <button onClick={this.onSubmit}> Log In </button>
         <SignInError error={this.state.error}/> 
-
         <p> Haven't registered yet? <a href="/signup"> Click here </a>  </p>
       </div>
     );
@@ -46,7 +46,7 @@ class SignIn extends React.Component {
 
 class SignInError extends React.Component {
   render() {
-    if (this.props.error === "true") {
+    if (this.props.error === "true") { // Why use booleans in string in JSON?
       return(
         <div className = 'signInError'>
           <p> Failed to log in successfully. Check your username or password again. </p>
@@ -58,7 +58,7 @@ class SignInError extends React.Component {
         <div className='signInError'>
           <p className="success"> Successfully logged in! Redirecting to profile...</p>
         </div>
-      )
+      );
     }
     else {
       return (<React.Fragment></React.Fragment>);

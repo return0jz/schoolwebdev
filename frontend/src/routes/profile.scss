@@ -1,11 +1,6 @@
 main {
-  margin-top: 50px;
-  margin-left: 175px;
-  margin-right: 160px;
-  margin-bottom: 50px;
-  display: flex;
-
   .square {
+    margin-left: 50px;
     width: 250px;
     height: 250px;
     background-color: black;
@@ -13,13 +8,25 @@ main {
     justify-content: center;
     align-items: center;
     margin-right: 100px;
-
-    h2 {
+    vertical-align: middle;
+  }
+  h2 {
       font-family: 'Fira Sans', Arial, Helvetica, sans-serif;
       font-size: 25px;
       color: white;
       text-align: center;
-      vertical-align: middle;
+  }
+  .butts {
+    button {
+      margin-left: 55px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+      border: none;
+      background: none;
+      display: block;
+    }
+    button:hover {
+      color: grey;
     }
   }
 }

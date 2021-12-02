@@ -6,39 +6,32 @@ const sqlite3 = require('sqlite3').verbose();
 const port = process.env.PORT || 3001
 
 module.exports = function() {
-  let db = new sqlite3.Database(":memory:");
+  let db = new sqlite3.Database(":memory:"); // dev
   db.run(`
-    CREATE TABLE IF NOT EXISTS user (
-      username VARCHAR(20) NOT NULL,
-      password VARCHAR(30) NOT NULL,
-      birth DATE NOT NULL,
-      session_id VARCHAR(36),
-      PRIMARY KEY (username)
+    CREATE TABLE IF NOT EXISTS user (\
+      username VARCHAR(20) NOT NULL,\
+      password VARCHAR(30) NOT NULL,\
+      description VARCHAR(160),\
+      birth DATE NOT NULL,\
+      session_id VARCHAR(36),\
+      PRIMARY KEY (username)\
     )
   `)
     .run(`
-    CREATE TABLE IF NOT EXISTS post (
-      id NOT NULL,
-      title VARCHAR(60) NOT NULL,
-      description TEXT,
-      birth DATETIME NOT NULL,
-      username VARCHAR(20) NOT NULL,
-      PRIMARY KEY (id),
-      FOREIGN KEY (username) REFERENCES user(username)
+    CREATE TABLE IF NOT EXISTS post (\
+      id NOT NULL,\
+      title VARCHAR(60) NOT NULL,\
+      description TEXT,\
+      birth DATETIME NOT NULL,\
+      username VARCHAR(20) NOT NULL,\
+      PRIMARY KEY (id),\
+      FOREIGN KEY (username) REFERENCES user(username)\
     )
-  `)//.run(`
-      //CREATE TABLE IF NOT EXISTS session (
-        //username VARCHAR(20) NOT NULL,
-        //session_id CHAR(20) NOT NULL,
-        //FOREIGN KEY (username) REFERENCES user(username)
-      //)
-  //`) 
-  // Using in-memory default (MemoryStore)
-  ;
+  `);
 
   let app = express();
   app.use(session({
-      secret: process.env.secret || "asdkfhjzfioqlhsjdajfhpq", // I guess its salt for cookie hash
+      secret: process.env.secret || "asdkfhjzfioqlhsjdajfhpq", 
       resave: false,
       saveUninitialized: false
   }));
