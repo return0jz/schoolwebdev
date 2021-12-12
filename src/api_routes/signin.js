@@ -5,7 +5,6 @@ module.exports = function(db) {
   router.post('/api/signin', (req, res) => {
     db.serialize(() => {
       db.get(`SELECT * FROM user WHERE username = ?`, req.body.username, (err, row) => {
-        console.log(req.body); // DEBUG
         if ( row && (row.username == req.body.username && row.password == req.body.password)) {
           req.session.username = req.body.username;
           req.session.save();

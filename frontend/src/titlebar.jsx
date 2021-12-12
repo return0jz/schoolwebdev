@@ -14,9 +14,9 @@ class Titlebar extends React.Component {
         </div>
 
         <nav>
-          <a href="/">BROWSE</a>
+          <a href="/">HOME</a>
           <a href="/profile">PROFILE</a>
-          <a href="/mygames">MY GAME LIST</a>
+          <a href="/postgame">POST A GAME</a>
         </nav>
       </header>
     )

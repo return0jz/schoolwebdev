@@ -19,7 +19,7 @@ class GameInfo extends react.Component {
   render() {
     return(
       <main>
-        <div class="gameInfo">
+        {/* <div class="gameInfo">
           <img src="/deliberateError"/>
           <div class="content">
             <div class="line">
@@ -33,7 +33,8 @@ class GameInfo extends react.Component {
             </p>
             <p> 1.e4 e5 2.Nf3 Nc6 3.Bb5 ...</p>
           </div>
-        </div>
+        </div> */}
+        <h1> Search and Home page are under construction! </h1>
       </main>
     );
   }

@@ -19,19 +19,18 @@ module.exports = function() {
   `)
     .run(`
     CREATE TABLE IF NOT EXISTS post (\
-      id NOT NULL,\
       title VARCHAR(60) NOT NULL,\
-      description TEXT,\
-      birth DATETIME NOT NULL,\
+      description VARCHAR(160),\
+      birth DATE NOT NULL,\
       username VARCHAR(20) NOT NULL,\
-      PRIMARY KEY (id),\
+      game VARCHAR(5000),\
       FOREIGN KEY (username) REFERENCES user(username)\
     )
   `);
 
   let app = express();
   app.use(session({
-      secret: process.env.secret || "asdkfhjzfioqlhsjdajfhpq", 
+      secret: process.env.secret || "secret", 
       resave: false,
       saveUninitialized: false
   }));
